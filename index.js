@@ -20,9 +20,9 @@ app.use(cors())
 
 app.use("/user", userController)
 
-app.use(authentication)
+// app.use(authentication)
 
-app.use("/todo",todoController)
+app.use("/todo",authentication,todoController)
 
 app.listen(PORT, async () => {
     try {
