@@ -3,6 +3,7 @@ const { connection } = require("./config/db");
 const { authentication } = require("./middleware/authentication");
 const { todoController } = require("./routes/todo.route");
 const { userController } = require("./routes/user.route");
+const cors = require("cors")
 require("dotenv").config()
 
 const app = express()
@@ -14,6 +15,8 @@ const PORT = process.env.PORT || 8000
 app.get("/", (req, res) => {
     res.send("THe link is working")
 })
+
+app.use(cors())
 
 app.use("/user", userController)
 
